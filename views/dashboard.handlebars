@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* CSS goes here*/
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Your Blog Posts</h2>
+            <ul>
+                {{#each blogPosts}}
+                    <li>
+                        <h3>{{title}}</h3>
+                        <p>{{content}}</p>
+                        <p>Created on {{formatDate created}}</p>
+                        <a href="/post/{{id}}">View</a> | <a href="/post/{{id}}/edit">Edit</a> | <a href="/post/{{id}}/delete">Delete</a>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Add New Blog Post</h2>
+            <form action="/dashboard/new" method="post">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                <button type="submit">Create Post</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content if needed -->
+    </footer>
+
+    <script>
+        // Possible JS files
+    </script>
+</body>
+</html>
